@@ -17,7 +17,7 @@ export function TokenCluster({address}) {
           let receiverRef = capability.borrow()
               ?? panic("Could not borrow the receiver reference")
       
-          return receiverRef.getMetadata(id: 1)
+          return receiverRef.getMetadata(id: 2)
         }
       `,
       fcl.args([fcl.arg(address, t.Address)]),
