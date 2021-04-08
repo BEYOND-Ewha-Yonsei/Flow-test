@@ -7,6 +7,8 @@ import {ProfileCluster} from "./profile-cluster"
 import {useCurrentUser} from "./hooks/current-user"
 import {SetupCluster} from "./setup-cluster"
 import {TokenCluster} from "./tokendata-cluster"
+import {Link, BrowserRouter} from 'react-router-dom'
+
 
 export default function App() {
   const cu = useCurrentUser()
@@ -18,9 +20,16 @@ export default function App() {
       <SetupCluster address={cu.addr} />
       <TokenCluster address={cu.addr} />
 
+      <div>
+      <BrowserRouter>
+      <Link to="./pixoristudy/src/index">
+        <button>Make a pixel!</button>
+      </Link>
+      </BrowserRouter>
+      </div>
+      
       <ProfileCluster address={cu.addr} />
       <ProfileCluster address="0xba1132bc08f82fe2" />
-      <ProfileCluster address="0xf117a8efa34ffd58" />
     </div>
   )
 }
