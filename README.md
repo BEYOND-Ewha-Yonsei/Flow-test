@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Flow-backend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🔍 Introduction
 
-## Available Scripts
+BEYOND-Flow team is working on a project related to [Flow](https://www.onflow.org/) that seeks the foundation of the Digital Asset Open World. We have established communication with Flow blockchain developer team called Dapper Labs, which developed Crypto Kitties and NBA Top Shot. Currently, we are developing new service items for user to purchase and trade Flow NFT-based digital assets. We aim to explore the potential for new crypto economic development with NFT and deliver truly user-friendly digital assets.
 
-In the project directory, you can run:
+This repository is for Cadence smart contracts that define core functionality of our service.
 
-### `yarn start`
+## 👽 Team Members
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Our team consists of 5 developers and 2 managers. Please contact us via flow@gobeyond.ac
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Back-end: [Juyeon Lee](https://github.com/kwklly), [Hyunsun Yoo](https://github.com/sunny0529), [Suhyun Lee](https://github.com/2suh)
+- Front-end: [Yewon Bahn](https://github.com/yewonbahn), [Eunsoo Park](https://github.com/e06-tech)
+- Manager: [Kihun Yun](mailto:mrclo90@gobeyond.ac?subject=[GitHub]%20Source%20Han%20Sans), [Namhye Kim](mailto:agathakim43@gobeyond.ac?subject=[GitHub]%20Source%20Han%20Sans)
 
-### `yarn test`
+## 🚩 Commit Message
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Format
 
-### `yarn build`
+```
+:git-emoji: <subject> 
+<body> 
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. General Rules
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- A message consists of a git-emoji and subject
+- Body messages are optional
+- No line should be longer than 50 characters long, for optimal github viewing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. git-emoji
 
-### `yarn eject`
+```js
+:sparkles: (Introduce new features)
+:fire: (Remove code or files)
+:bug: (Fix a bug)
+:zap: (Improve performance)
+:recycle: (Refactor code)
+:lipstick: (Update style; formatting, missing semi-colons, white-space, etc)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+:wrench: (Add or update configuration files)
+:building_construction: (Make architectural changes)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+:memo: (Add or update documentation)
+:bulb: (Add or update comments in source code)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+:construction: (Work in progress)
+:poop: (Write bad code that needs to be improved)
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 4. subject
 
-## Learn More
+- Use the imperative, present tense: "Add" not "Added" nor "Adds"
+- Capitalize only in first letter except for proper noun: "Add NFTReceiver function" nor "Add NFTReceiver Function"
+- Don't use (.) at the end
+- Separate subject from body with a blank line
+- Use the body to explain what and why vs. how
+- Can use multiple lines with "-" or "*" for bullet points in body
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 5. Examples
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+✨ Add NFTReceiver function
 
-### Code Splitting
+🔥 Remove deposit function
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🐛 Fix a bug
 
-### Analyzing the Bundle Size
+⚡ Improve performance
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+♻️ Refactor code
 
-### Making a Progressive Web App
+💄 Remove space lines
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🔧 Use variable expansion in doetnv files
 
-### Advanced Configuration
+🏗️ Split into 2 files
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+📝 Update READMEs
 
-### Deployment
+💡 Add comments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+🚧 Work in progress
 
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+💩 Need improvements
