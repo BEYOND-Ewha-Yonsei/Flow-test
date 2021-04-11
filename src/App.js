@@ -19,14 +19,6 @@ export default function App() {
       <InitCluster address={cu.addr} />
       <SetupCluster address={cu.addr} />
       <TokenCluster address={cu.addr} />
-
-      <div>
-      <BrowserRouter>
-      <Link to="./pixoristudy/src/index">
-        <button>Make a pixel!</button>
-      </Link>
-      </BrowserRouter>
-      </div>
       
       <ProfileCluster address={cu.addr} />
       <ProfileCluster address="0xba1132bc08f82fe2" />
