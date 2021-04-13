@@ -10,14 +10,21 @@ export function TokenCluster({address}) {
         fcl.script`
         import Pixori from 0x05f5f6e2056f588b
 
-        pub fun main(address: Address) : {String : String} {
+        pub fun main(address: Address): [{String: String}] {
           let nftOwner = getAccount(address)  
           let capability = nftOwner.getCapability<&{Pixori.NFTReceiver}>(/public/NFTReceiver)
       
           let receiverRef = capability.borrow()
               ?? panic("Could not borrow the receiver reference")
+
+          let allIDs = receiverRef.getIDs()
+          var allMetadata: [{String: String}] = []
       
-          return receiverRef.getMetadata(id: 2)
+          for id in allIDs {
+              allMetadata.append(receiverRef.getMetadata(id: id))
+          }
+
+          return allMetadata
         }
       `,
       fcl.args([fcl.arg(address, t.Address)]),
