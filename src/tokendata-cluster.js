@@ -31,7 +31,8 @@ export function TokenCluster({address}) {
       ])
     
     const decoded = await fcl.decode(encoded)
-    setNftInfo(decoded)
+    setNftInfo(decoded) // Error: Objects are not valid as a React child (found: object with keys {name, time, location}). 
+    // If you meant to render a collection of children, use an array instead.
   };
   return (
     <div>
