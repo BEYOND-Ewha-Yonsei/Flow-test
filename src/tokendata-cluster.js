@@ -43,10 +43,9 @@ export function TokenCluster({address}) {
         nftInfo &&
         <div>
           {
-            Object.keys(nftInfo).map(k => {
-              return (
-                <p>{k}: {nftInfo[k]}</p>
-              )
+            nftInfo.map(k => {
+              return(
+                <div>{JSON.stringify(nftInfo)}</div>)
             })
           }
           <button onClick={() => setNftInfo(null)}>Clear Token Info</button>
