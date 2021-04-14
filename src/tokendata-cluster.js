@@ -33,7 +33,7 @@ export function TokenCluster({address}) {
     const decoded = await fcl.decode(encoded)
     setNftInfo(decoded) 
   };
-  
+
   return (
     <div>
       <div>
@@ -42,9 +42,15 @@ export function TokenCluster({address}) {
       {
         nftInfo &&
         <div>
-          {
-                <div>{JSON.stringify(nftInfo)}</div>
-          }
+            <b>My NFTs</b>
+            {Object.keys(nftInfo).map(k => {
+              return (
+                <p>
+                  NFT #{k} > Name: {nftInfo[k].name} / Time: {nftInfo[k].time} / Location: {nftInfo[k].location}
+                </p>
+              )
+            })
+            }
           <button onClick={() => setNftInfo(null)}>Clear Token Info</button>
         </div>
       }
