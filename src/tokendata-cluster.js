@@ -37,12 +37,11 @@ export function TokenCluster({address}) {
   return (
     <div>
       <div>
-        <button onClick={fetchTokenData}>Fetch Token Data</button>        
+        <button onClick={fetchTokenData}>Show my NFTs!</button>        
       </div>
       {
         nftInfo &&
         <div>
-            <p><b>My NFTs</b></p>
             {Object.keys(nftInfo).map(k => {
               return (
                 <p>
@@ -51,7 +50,7 @@ export function TokenCluster({address}) {
               )
             })
             }
-          <button onClick={() => setNftInfo(null)}>Clear Token Info</button>
+          <button onClick={() => setNftInfo(null)}>Clear NFTs</button>
         </div>
       }
     </div>
