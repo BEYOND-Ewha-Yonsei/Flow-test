@@ -42,7 +42,7 @@ export function TokenCluster({address}) {
       {
         nftInfo &&
         <div>
-            <b>My NFTs</b>
+            <p><b>My NFTs</b></p>
             {Object.keys(nftInfo).map(k => {
               return (
                 <p>
