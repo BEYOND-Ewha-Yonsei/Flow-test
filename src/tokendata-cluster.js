@@ -46,6 +46,8 @@ export function TokenCluster({address}) {
             nftInfo.map(k => {
               return(
                 <div>{JSON.stringify(nftInfo)}</div>)
+                // if there are 3 NFTs in account,
+                // return: repeat the same value for 3 times [{"name":"test2","time":"1:49 AM","location":"home"},{"name":"test3","time":"09:45 PM","location":"home"},{"name":"test4","time":"10:03 PM","location":"home"}]
             })
           }
           <button onClick={() => setNftInfo(null)}>Clear Token Info</button>
