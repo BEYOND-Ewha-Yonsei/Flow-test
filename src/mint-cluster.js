@@ -11,7 +11,7 @@ const mint = async () => {
       fcl.transaction`
       import Pixori from 0x05f5f6e2056f588b 
 
-      transaction(metadata: {String: String}) {
+      transaction {
       
           let receiverRef: &{Pixori.NFTReceiver}
           let minterRef: &Pixori.NFTMinter
@@ -29,6 +29,10 @@ const mint = async () => {
           execute {
       
               let newNFT <- self.minterRef.mintNFT()
+              let metadata: {String : String} = {
+                "name" : "test1",
+                "time": "00:57 AM"
+               }
       
               }
               self.receiverRef.deposit(token: <-newNFT, metadata: metadata)
@@ -39,7 +43,7 @@ const mint = async () => {
       fcl.proposer(AUTHORIZATION_FUNCTION),
       fcl.authorizations([AUTHORIZATION_FUNCTION]),
       fcl.payer(AUTHORIZATION_FUNCTION),
-      fcl.args(metadata),
+      // fcl.args(metadata),
     ]);
     console.log("TRANSACTION SENT");
     console.log("TRANSACTION RESPONSE", response);
