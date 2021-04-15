@@ -77,6 +77,8 @@ Our team consists of 5 developers and 2 managers. Please contact us via flow@gob
 
 🏗️ Split into 2 files
 
+:white_check_mark: Test required​
+
 📝 Update READMEs
 
 💡 Add comments
