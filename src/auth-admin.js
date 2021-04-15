@@ -3,7 +3,7 @@ import { SHA3 } from "sha3";
 import * as fcl from "@onflow/fcl";
 const ec = new EC("p256");
 
-const ADDRESS = "0x05f5f6e2056f588b";
+const ADDRESS = "05f5f6e2056f588b";
 const PRIVATE_KEY =
   "cfa7ed37cd930acd4f64c843901f276bc66941952b75a7c0e1646a50ec486e22";
 
