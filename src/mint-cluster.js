@@ -62,7 +62,7 @@ const mint = async () => {
   }
 };
 
-function Mint() {
+function MintCluster() {
   return (
     <div>
       <button onClick={mint}>Mint</button>
@@ -70,4 +70,4 @@ function Mint() {
   );
 }
 
-export default Mint;
+export default MintCluster;
