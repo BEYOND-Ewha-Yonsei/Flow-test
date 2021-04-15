@@ -41,6 +41,7 @@ Our team consists of 5 developers and 2 managers. Please contact us via flow@gob
 
 :wrench: (Add or update configuration files)
 :building_construction: (Make architectural changes)
+:white_check_mark: (Add or update tests)
 
 :memo: (Add or update documentation)
 :bulb: (Add or update comments in source code)
