@@ -7,6 +7,8 @@ const AUTHORIZATION_FUNCTION = admin;
 const mint = async () => {
   try {
     console.log("SENDING TRANSACTION");
+    // FAILED TRANSACTION TypeError: Cannot read property 'padStart' of null at send-get-account.js:12
+
     var response = await fcl.send([
       fcl.transaction`
       import Pixori from 0x05f5f6e2056f588b 
