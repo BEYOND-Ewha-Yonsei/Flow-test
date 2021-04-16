@@ -1,15 +1,77 @@
 import React from "react";
 import * as fcl from "@onflow/fcl";
-import { admin } from "./auth-admin";
+import { SHA3 } from 'sha3';
+import * as Elliptic from 'elliptic';
+const ec = new Elliptic.ec('p256');
 
-const AUTHORIZATION_FUNCTION = admin;
 
-const mint = async () => {
+function hashMsgHex(msgHex: string) {
+  const sha = new SHA3(256);
+  sha.update(Buffer.from(msgHex, 'hex'));
+  return sha.digest();
+}
+
+function signWithKey(privateKey: string, data: string) {
+  const key = ec.keyFromPrivate(Buffer.from(privateKey, 'hex'));
+  const sig = key.sign(hashMsgHex(data));
+  const n = 32; // half of signature length?
+  const r = sig.r.toArrayLike(Buffer, 'be', n);
+  const s = sig.s.toArrayLike(Buffer, 'be', n);
+  return Buffer.concat([r, s]).toString('hex');
+}
+
+interface Account {
+  address: string;
+  publicKey: string;
+  privateKey: string;
+  keyId: number;
+}
+
+export const buildAuthorization = ({ address, keyId, privateKey }: Account) => (
+  account: any
+) => ({
+  ...account,
+  tempId: address,
+  addr: address,
+  keyId: keyId,
+  resolve: null,
+  signingFunction: (data: any) => {
+    return {
+      addr: address,
+      keyId: keyId,
+      signature: signWithKey(privateKey, data.message),
+    };
+  },
+});
+
+const admin: Account = {
+  address: '05f5f6e2056f588b',
+  publicKey:
+    '2f903857515eb6eb0bbfe6a8e587878e172c728c964914fde02eefe0d23dcf46d766bf9e1e55843c047b1baa132b8d652e77ed5ffae1b1e807c1c9d9ee15ed33',
+  privateKey:
+    'cfa7ed37cd930acd4f64c843901f276bc66941952b75a7c0e1646a50ec486e22',
+  keyId: 0,
+};
+
+async function handleTransaction(description: string, args: any) {
   try {
-    console.log("SENDING TRANSACTION");
-    // FAILED TRANSACTION TypeError: Cannot read property 'padStart' of null at send-get-account.js:12
+    console.log(description);
+    const transaction = await fcl.send(args);
+    console.log('-->', transaction.transactionId);
+    await fcl.tx(transaction).onceSealed();
+    console.log('OK');
+  } catch (e) {
+    console.log('KO : ', e);
+  }
+}
 
-    var response = await fcl.send([
+
+async function mint() {
+  console.log('Ping...');
+  await fcl.send([fcl.ping()]);
+  console.log('OK');
+
+  await handleTransaction('Sending transaction...', [
       fcl.transaction`
       import Pixori from 0x05f5f6e2056f588b 
 
@@ -32,9 +94,10 @@ const mint = async () => {
       
               let newNFT <- self.minterRef.mintNFT()
               let metadata: {String : String} = {
-                "name" : "test1",
-                "time": "00:57 AM"
-               }
+                "name" : "test2",
+                "date": "April 17",
+                "time": "02:21"
+              
       
               }
               self.receiverRef.deposit(token: <-newNFT, metadata: metadata)
@@ -42,27 +105,13 @@ const mint = async () => {
           }
       }
     `,
-      fcl.proposer(AUTHORIZATION_FUNCTION),
-      fcl.authorizations([AUTHORIZATION_FUNCTION]),
-      fcl.payer(AUTHORIZATION_FUNCTION),
-      // fcl.args(metadata),
-    ]);
-    console.log("TRANSACTION SENT");
-    console.log("TRANSACTION RESPONSE", response);
+    fcl.payer(buildAuthorization(admin)),
+    fcl.proposer(buildAuthorization(admin)),
+    fcl.authorizations([buildAuthorization(admin)]),
+    fcl.limit(35),
+  ]);
 
-    console.log("WAITING FOR TRANSACTION TO BE SEALED");
-    var data = await fcl.tx(response).onceSealed();
-    console.log("TRANSACTION SEALED", data);
-
-    if (data.status === 4 && data.statusCode === 0) {
-      alert("Congrats!!! I Think It Works");
-    } else {
-      alert(`Oh No: ${data.errorMessage}`);
-    }
-  } catch (error) {
-    console.error("FAILED TRANSACTION", error);
-  }
-};
+}
 
 export function MintCluster() {
   return (
