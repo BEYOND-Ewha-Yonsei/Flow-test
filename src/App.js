@@ -9,6 +9,7 @@ import {SetupCluster} from "./setup-cluster"
 import {TokenCluster} from "./tokendata-cluster"
 import {Link, BrowserRouter} from 'react-router-dom'
 import {MintCluster} from "./mint-cluster"
+import {TransferCluster} from "./transfer-cluster"
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
       <SetupCluster address={cu.addr} />
       <TokenCluster address={cu.addr} />
       <MintCluster />
+      <TransferCluster address={cu.addr} />
       
       <ProfileCluster address={cu.addr} />
       <ProfileCluster address="0xba1132bc08f82fe2" />
