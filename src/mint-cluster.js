@@ -2,8 +2,9 @@ import React from "react";
 import * as fcl from "@onflow/fcl";
 import { SHA3 } from 'sha3';
 import * as Elliptic from 'elliptic';
-const ec = new Elliptic.ec('p256');
 
+
+const ec = new Elliptic.ec('p256');
 
 function hashMsgHex(msgHex: string) {
   const sha = new SHA3(256);
@@ -65,7 +66,6 @@ async function handleTransaction(description: string, args: any) {
   }
 }
 
-
 async function mint() {
   console.log('Ping...');
   await fcl.send([fcl.ping()]);
@@ -94,12 +94,11 @@ async function mint() {
       
               let newNFT <- self.minterRef.mintNFT()
               let metadata: {String : String} = {
-                "name" : "test2",
+                "name" : "test3",
                 "date": "April 17",
-                "time": "02:21"
-              
-      
+                "time": "11:06"
               }
+              
               self.receiverRef.deposit(token: <-newNFT, metadata: metadata)
               log("NFT Minted and deposited to the Current user's Collection")
           }
