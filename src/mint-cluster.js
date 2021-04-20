@@ -1,5 +1,6 @@
 import React from "react";
 import * as fcl from "@onflow/fcl";
+import * as t from "@onflow/types"
 import { SHA3 } from 'sha3';
 import * as Elliptic from 'elliptic';
 
@@ -76,7 +77,7 @@ async function mint() {
       fcl.transaction`
       import Pixori from 0x05f5f6e2056f588b 
 
-      transaction {
+      transaction(metadata: {String: String}) {
       
           let receiverRef: &{Pixori.NFTReceiver}
           let minterRef: &Pixori.NFTMinter
@@ -94,11 +95,6 @@ async function mint() {
           execute {
       
               let newNFT <- self.minterRef.mintNFT()
-              let metadata: {String : String} = {
-                "name" : "test4",
-                "date": "April 19",
-                "time": "01:56"
-              }
               
               self.receiverRef.deposit(token: <-newNFT, metadata: metadata)
               log("NFT Minted and deposited to the Current user's Collection")
@@ -108,6 +104,7 @@ async function mint() {
     fcl.payer(buildAuthorization(admin)),
     fcl.proposer(buildAuthorization(admin)),
     fcl.authorizations([buildAuthorization(admin)]),
+    fcl.args([fcl.arg({"name": "test5", "date": "April 21", "time": "01:45"}, t.Dictionary)]),
     fcl.limit(35),
   ]);
 
