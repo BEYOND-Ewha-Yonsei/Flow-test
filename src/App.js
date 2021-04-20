@@ -20,12 +20,17 @@ export default function App() {
       <AuthCluster />
       <InitCluster address={cu.addr} />
       <SetupCluster address={cu.addr} />
+
+      <p><strong>MY NFT</strong>
       <IDCluster address={cu.addr} />
-      
       <TokenCluster address={cu.addr} />
+      </p>
+
+      <p><strong>ADMIN's NFT</strong>
       <MintCluster />
       <IDCluster address="0x05f5f6e2056f588b" />
       <TransferCluster address={cu.addr} />
+      </p>
       
       <ProfileCluster address={cu.addr} />
       <ProfileCluster address="0xba1132bc08f82fe2" />
