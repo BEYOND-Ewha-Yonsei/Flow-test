@@ -21,9 +21,10 @@ export default function App() {
       <InitCluster address={cu.addr} />
       <SetupCluster address={cu.addr} />
       <IDCluster address={cu.addr} />
-
+      
       <TokenCluster address={cu.addr} />
       <MintCluster />
+      <IDCluster address="0x05f5f6e2056f588b" />
       <TransferCluster address={cu.addr} />
       
       <ProfileCluster address={cu.addr} />
