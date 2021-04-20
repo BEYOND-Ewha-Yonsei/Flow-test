@@ -66,6 +66,7 @@ async function handleTransaction(description: string, args: any) {
   }
 }
 
+export function MintCluster() {
 async function mint() {
   console.log('Ping...');
   await fcl.send([fcl.ping()]);
@@ -94,9 +95,9 @@ async function mint() {
       
               let newNFT <- self.minterRef.mintNFT()
               let metadata: {String : String} = {
-                "name" : "test3",
-                "date": "April 17",
-                "time": "11:06"
+                "name" : "test4",
+                "date": "April 19",
+                "time": "01:56"
               }
               
               self.receiverRef.deposit(token: <-newNFT, metadata: metadata)
@@ -111,8 +112,6 @@ async function mint() {
   ]);
 
 }
-
-export function MintCluster() {
   return (
     <div>
       <button onClick={mint}>Mint</button>
