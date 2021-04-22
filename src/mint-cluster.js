@@ -104,7 +104,20 @@ async function mint() {
     fcl.payer(buildAuthorization(admin)),
     fcl.proposer(buildAuthorization(admin)),
     fcl.authorizations([buildAuthorization(admin)]),
-    fcl.args([fcl.arg({"name": "test5", "date": "April 21", "time": "01:45"}, t.Dictionary)]),
+    fcl.args([
+      fcl.arg(
+      [
+        {key: "name", value: "test5"},
+        {key: "date", value: "April 21"},
+        {key: "time", value: "18:05"},
+      ],  
+      t.Dictionary([
+        {key: t.String, value: t.String},
+        {key: t.String, value: t.String},
+        {key: t.String, value: t.String},              
+      ])
+      )]      
+    ),
     fcl.limit(35),
   ]);
 
