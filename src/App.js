@@ -7,13 +7,13 @@ import {ProfileCluster} from "./profile-cluster"
 import {useCurrentUser} from "./hooks/current-user"
 import {SetupCluster} from "./setup-cluster"
 import {TokenCluster} from "./tokendata-cluster"
-import {Link, BrowserRouter} from 'react-router-dom'
 import {MintCluster} from "./mint-cluster"
 import {TransferCluster} from "./transfer-cluster"
 import {IDCluster} from "./id-cluster"
 
 export default function App() {
   const cu = useCurrentUser()
+  
 
   return (
     <div>
