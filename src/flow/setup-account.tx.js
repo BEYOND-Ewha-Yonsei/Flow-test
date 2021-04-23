@@ -6,8 +6,6 @@ import * as fcl from "@onflow/fcl"
 export async function setupAccount() {
   const txId = await fcl
     .send([
-      // Transactions use fcl.transaction instead of fcl.script
-      // Their syntax is a little different too
       fcl.transaction`
         import Pixori from 0x05f5f6e2056f588b
 
@@ -22,10 +20,10 @@ export async function setupAccount() {
           }
       }
       `,
-      fcl.payer(fcl.authz), // current user is responsible for paying for the transaction
-      fcl.proposer(fcl.authz), // current user acting as the nonce
-      fcl.authorizations([fcl.authz]), // current user will be first AuthAccount
-      fcl.limit(35), // set the compute limit
+      fcl.payer(fcl.authz), 
+      fcl.proposer(fcl.authz), 
+      fcl.authorizations([fcl.authz]), 
+      fcl.limit(35), 
     ])
     .then(fcl.decode)
 
