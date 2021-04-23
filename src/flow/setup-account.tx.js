@@ -1,7 +1,6 @@
 // File: ./src/flow/setup-account.tx.js
 
 import * as fcl from "@onflow/fcl"
-//import * as t from "@onflow/types"
 
 export async function setupAccount() {
   const txId = await fcl
