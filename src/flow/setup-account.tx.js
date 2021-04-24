@@ -9,13 +9,11 @@ export async function setupAccount() {
         import Pixori from 0x05f5f6e2056f588b
 
         transaction {
-          prepare(account: AuthAccount) {
-   
-              let collection <- Pixori.createEmptyCollection()
+          prepare(account: AuthAccount) {  
+            let collection <- Pixori.createEmptyCollection()
   
-              account.save<@Pixori.Collection>(<-collection, to: /storage/NFTCollection)
-              account.link<&{Pixori.NFTReceiver}>(/public/NFTReceiver, target: /storage/NFTCollection)
-    
+            account.save<@Pixori.Collection>(<-collection, to: /storage/NFTCollection)
+            account.link<&{Pixori.NFTReceiver}>(/public/NFTReceiver, target: /storage/NFTCollection)
           }
       }
       `,
