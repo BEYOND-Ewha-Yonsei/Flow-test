@@ -1,4 +1,4 @@
-# Pixori-test
+# Pixori-backend
 
 ## 🔍 Introduction
 
