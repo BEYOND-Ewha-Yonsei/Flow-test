@@ -37,7 +37,7 @@ export function TokenCluster({address}) {
   return (
     <div>
       <div>
-        <button onClick={fetchTokenData}>Show my NFTs!</button>        
+        <button onClick={fetchTokenData}>Show my NFTs</button>        
       </div>
       {
         nftInfo &&

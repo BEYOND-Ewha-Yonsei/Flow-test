@@ -31,7 +31,7 @@ export function IDCluster({address}) {
   return (
     <div>
       <div>
-        <button onClick={fetchID}>Show IDs!</button>        
+        <button onClick={fetchID}>Show IDs</button>        
       </div>
       {
         idInfo &&
